@@ -24,10 +24,12 @@ public class MusicUtils {
             } else {
                 a[i] = (a[i-p] + a[i-(p-1)])*K;
             }
-            System.out.println(i);
         }
         return a;
     }
 
-
+    public static double[] note(int pitch, double duration) {
+        double freq = 440*Math.pow(2, pitch/12.0);
+        return pluck(freq, duration);
+    }
 }
