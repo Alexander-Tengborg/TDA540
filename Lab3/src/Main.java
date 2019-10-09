@@ -4,19 +4,19 @@ public class Main {
     public static void main(String[] args) {
         SoundDevice device = new SoundDevice();
         Song song = new Song(10);
-        song.add(MusicUtils.note(-9, 0.4));
-        song.add(MusicUtils.note(-9, 0.4));
-        song.add(MusicUtils.note(-9, 0.4));
-        song.add(MusicUtils.note(-5, 0.4));
-        song.add(MusicUtils.note(-7, 0.4));
-        song.add(MusicUtils.note(-7, 0.4));
-        song.add(MusicUtils.note(-7, 0.4));
-        song.add(MusicUtils.note(-4, 0.4));
-        song.add(MusicUtils.note(-5, 0.4));
-        song.add(MusicUtils.note(-5, 0.4));
-        song.add(MusicUtils.note(-7, 0.4));
-        song.add(MusicUtils.note(-7, 0.4));
-        song.add(MusicUtils.note(-9, 1));
+        song.add(MusicUtils.harmonic(-9, 0.4));
+        song.add(MusicUtils.harmonic(-9, 0.4));
+        song.add(MusicUtils.harmonic(-9, 0.4));
+        song.add(MusicUtils.harmonic(-5, 0.4));
+        song.add(MusicUtils.harmonic(-7, 0.4));
+        song.add(MusicUtils.harmonic(-7, 0.4));
+        song.add(MusicUtils.harmonic(-7, 0.4));
+        song.add(MusicUtils.harmonic(-4, 0.4));
+        song.add(MusicUtils.harmonic(-5, 0.4));
+        song.add(MusicUtils.harmonic(-5, 0.4));
+        song.add(MusicUtils.harmonic(-7, 0.4));
+        song.add(MusicUtils.harmonic(-7, 0.4));
+        song.add(MusicUtils.harmonic(-9, 1));
         song.play(device);
         song.save(device.getFormat(),new File("twotones.wav"));
     }//main

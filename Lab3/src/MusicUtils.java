@@ -32,4 +32,23 @@ public class MusicUtils {
         double freq = 440*Math.pow(2, pitch/12.0);
         return pluck(freq, duration);
     }
+
+    public static double[] average(double[] t1, double[] t2) {
+        double[] t3 = new double[t1.length];
+        for(int i = 0; i < t1.length; i++) {
+            t3[i] = (t1[i] + t2[i]) / 2;
+        }
+        return t3;
+    }
+
+    public static double[] harmonic(int pitch, double duration) {
+        double[] t1 = note(pitch, duration);
+        double[] t2 = note(pitch-12, duration);
+        double[] t3 = note(pitch+12, duration);
+
+        double[] harm1 = average(t1, t2);
+        double[] harm2 = average(harm1, t3);
+
+        return harm2;
+    }
 }
