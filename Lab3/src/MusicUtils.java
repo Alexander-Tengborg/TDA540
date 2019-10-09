@@ -24,7 +24,6 @@ public class MusicUtils {
             } else {
                 a[i] = (a[i-p] + a[i-(p-1)])*K;
             }
-            System.out.println(i);
         }
         return a;
     }
