@@ -1,7 +1,7 @@
 public class MyGrayProgram { 
    public static void main(String[] args) throws Exception{ 
       int[][] original = GrayImage.read("mushroom.jpeg"); 
-      int[][] manipulated = contour(toBlackWhite(original));
+      int[][] manipulated = contour(original);
       GrayImage.write("upDownMushroom.jpeg", manipulated); 
       GrayImageWindow iw = new GrayImageWindow(original, manipulated); 
    }//main 
@@ -41,6 +41,7 @@ public class MyGrayProgram {
    }
 
    public static int[][] contour(int[][] samples) {
+      samples = toBlackWhite(samples);
       int[][] newSamples = new int[samples.length][samples[0].length];
       for(int row = 0; row < samples.length; row++) {
          for (int col = 0; col < samples[row].length; col++) {
@@ -66,7 +67,7 @@ public class MyGrayProgram {
       for(int curRow = row - 1; curRow <= (row + 1); curRow++) {
          if(curRow < 0 || curRow > (samples.length - 1)) continue;
          for(int curCol = col - 1; curCol <= (col + 1); curCol++) {
-            if(curCol < 0 || curCol > (samples[row].length - 1)) continue;
+            if(curCol < 0 || curCol > (samples[row].length - 1) || (curCol == col && curRow == row)) continue;
             if(samples[curRow][curCol] == 255) return true;
          }
       }
