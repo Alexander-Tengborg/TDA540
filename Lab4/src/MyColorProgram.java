@@ -172,6 +172,10 @@ public class MyColorProgram {
          double xColor = Math.pow(xColors[i], 2);
          double yColor = Math.pow(yColors[i], 2);
          int newColor = (int)Math.sqrt(xColor + yColor);
+
+         if(newColor < 0) newColor = 0;
+         if(newColor > 255) newColor = 255;
+
          newColors[i] = newColor;
       }
       return newColors;
