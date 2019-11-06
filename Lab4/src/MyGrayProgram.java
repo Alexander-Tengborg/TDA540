@@ -1,7 +1,7 @@
 public class MyGrayProgram { 
    public static void main(String[] args) throws Exception{ 
       int[][] original = GrayImage.read("mushroom.jpeg"); 
-      int[][] manipulated = contour(original);
+      int[][] manipulated = contour2(original);
       GrayImage.write("upDownMushroom.jpeg", manipulated); 
       GrayImageWindow iw = new GrayImageWindow(original, manipulated); 
    }//main 
@@ -73,4 +73,49 @@ public class MyGrayProgram {
       }
       return false;
    }
+
+   public static int[][] contour2(int[][] samples){
+      samples = toBlackWhite(samples);
+      int length = samples.length;
+      int width=samples[0].length;
+      int[][] newSamples = new int[length][width];
+
+      boolean onTopRow,onTopLeftCorner,onTopRightCorner, onBottomRightCorner,onBottomLeftCorner, onBottomRow, onRightRow, onLeftRow;
+
+      for(int x=0;x<length;x++){
+         for(int y=0;y<width;y++){
+            onTopRow=x==0; onBottomRow=x==length-1;onLeftRow=y==0;onRightRow=y==width-1;
+            onTopLeftCorner=x==0&&y==0; onTopRightCorner=x==0&&y==width-1; onBottomLeftCorner=x==length-1&&y==0;
+            onBottomRightCorner=x==length-1&&y==width-1;
+
+            if((!(x==0))&&(!(x==length-1))&&(!onRightRow)&&(!onLeftRow)&&(!onBottomRow)){
+               if(samples[x][y]==0 && (samples[x-1][y]==255||samples[x-1][y-1]==255||samples[x-1][y+1]==255||samples[x+1][y]==255||
+                       samples[x+1][y-1]==255||samples[x][y+1]==255||samples[x+1][y+1]==255||samples[x][y-1]==255)) {
+                  newSamples[x][y]=0;
+               } else{
+                  newSamples[x][y]=255;
+               }
+            } else if(onTopLeftCorner){
+               if(samples[x][y+1]==255 || samples[x+1][y]==255 || samples[x+1][y+1]==255){
+                  newSamples[x][y]=0;
+               } else{newSamples[x][y]=255;}
+            } else if(x==0 && y==width-1){
+               if(samples[0][y-1]==255||
+                       samples[1][y]==255||
+                       samples[1][y-1]==255){
+                  newSamples[x][y]=0;
+               } else{newSamples[x][y]=255;}
+            } else if(onBottomLeftCorner){
+               if(samples[x-1][y]==255||samples[x-1][y+1]==255||samples[x][y+1]==255){
+                  newSamples[x][y]=0;
+               }else{newSamples[x][y]=255;}
+            } else if(onBottomRightCorner){
+               if(samples[x][y-1]==255||samples[x-1][y]==255||samples[x-1][y-1]==255){
+                  newSamples[x][y]=0;
+               }else{newSamples[x][y]=255;}
+            }
+         }
+      }
+      return newSamples;
+   }//contour
 }//MyGrayProgram
