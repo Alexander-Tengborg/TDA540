@@ -24,6 +24,10 @@ public class Player {
         chips -= amount;
     }
 
+    String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         String string = name + " (" + chips +" chips)";

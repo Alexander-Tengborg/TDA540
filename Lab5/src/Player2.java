@@ -1,4 +1,4 @@
-public class Player2{
+public class Player2 {
     String name;
     DiceCup diceCup;
     int totalSum = 0;
