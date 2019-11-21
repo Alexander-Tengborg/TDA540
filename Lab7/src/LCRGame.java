@@ -51,7 +51,6 @@ public class LCRGame {
 
         if(player.getChips() == 0) checkWinner();
 
-        System.out.println();
         nextPlayer();
         turn++;
     }
