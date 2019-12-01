@@ -2,8 +2,6 @@ public class LCRGame {
     Player[] players;
     Die[] dice;
     int currentPlayer = 0;
-    int tablePot = 0; //needed???
-    int turn = 0;
 
     boolean hasWinner = false;
 
@@ -42,7 +40,6 @@ public class LCRGame {
                     break;
                 case "C":
                     player.removeChips(1);
-                    tablePot++;
                     break;
                 case ".":
                     break;
@@ -52,7 +49,6 @@ public class LCRGame {
         if(player.getChips() == 0) checkWinner();
 
         nextPlayer();
-        turn++;
     }
 
     Player getCurrentPlayer() {
@@ -80,7 +76,7 @@ public class LCRGame {
         }
     }
 
-    Player getPlayerRight() { // "fix" with ternary expression
+    Player getPlayerRight() {
         if(currentPlayer + 1 == players.length) {
             return players[0];
         } else {

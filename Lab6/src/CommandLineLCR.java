@@ -1,25 +1,14 @@
 import java.util.Scanner;
 
-/**
- * This class is a skeleton. Don't change the overall
- * structure but just uncomment and add code where needed.
- */
 public class CommandLineLCR {
 
   public static void main(String[] args) {
-    // Use this as an test area when starting out
-    // I.e. instantiate objects and test
-    // Later just comment out (don't erase the test code!)
-
     testDie();
     testPlayer();
-    testLCRGame();
 
-    // TODO: Uncomment this when you are done
-    //runCommandLineLCR();
+    runCommandLineLCR();
   }
 
-  // TODO: For each class you implement, add a method here to test it.
   private static void testDie() {
     Die die = new Die();
     String possibleRolls = "LCR.";
@@ -50,11 +39,6 @@ public class CommandLineLCR {
     assert (player.getNbRolls() == player.getChips()) : "Player.getNbRolls should return Player.getChips() if Player.getChips() < 3";
   }
 
-  private static void testLCRGame() {
-
-  }
-
-  // TODO: Uncomment below when possible
   public static void runCommandLineLCR() {
 
     LCRGame lcr = buildLCRGame();
@@ -71,7 +55,6 @@ public class CommandLineLCR {
       switch (cmd) {
         case "r":
           lcr.playTurn();
-          // TODO: Play one player's turn and render the game's state
           break;
         case "q":
           done = true;
@@ -93,7 +76,6 @@ public class CommandLineLCR {
     }
   }
 
-
   private static LCRGame buildLCRGame() {
     String[] playerNames = new String[] {"Gunnar", "Leif", "Gudrun"};
 
@@ -101,8 +83,6 @@ public class CommandLineLCR {
 
     return lcrGame;
   }
-
-
 
   private static void render(LCRGame lcr) {
     if(lcr.turn != 0) {
@@ -118,5 +98,4 @@ public class CommandLineLCR {
     }
     System.out.println();
   }
-
 }
