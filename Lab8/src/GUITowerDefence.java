@@ -7,9 +7,6 @@ import java.awt.geom.Line2D;
 import java.net.URL;
 import java.util.*;
 
-/**
- * Basic GUI for very basic "Tower Defence" game
- */
 public class GUITowerDefence extends JFrame {
 
   // A map that assigns a panel to each position in the game
@@ -65,12 +62,10 @@ public class GUITowerDefence extends JFrame {
 
         Position position = level.getPosition(col, row); //TODO ???????????????????????
 
-        //TODO Can place multiple towers on one square
         if(level.passable[row][col] == false) {
           positionPanel.setBackground(Color.GREEN);
 
           positionPanel.setLayout(new BorderLayout(0, 0));
-
 
           JButton button = new JButton();
 
@@ -79,6 +74,8 @@ public class GUITowerDefence extends JFrame {
           button.setBorderPainted(false);
 
           button.addActionListener(e -> {
+            if(positionPanel.getComponents().length > 1) return;
+
             Tower tower = new Tower(2, 2, position);
             towers.add(tower);
             positionPanel.add(tower);
@@ -91,19 +88,17 @@ public class GUITowerDefence extends JFrame {
 
         // Add the panel to the 'positionPanels' map so we can access it
         // later (with positionPanels.get(position)).
-        System.out.println(position);
         positionPanels.put(position, positionPanel);
       }
     }
 
-    monster = new Monster(5000, level.getStartPos());
+    monster = new Monster(50, level.getStartPos());
 
     // Start the timer and set it to call the event loop each second
     EventLoop loop = new EventLoop();
     timer = new Timer(SPEED, loop);
     timer.setInitialDelay(PAUSE);
     timer.start();
-
   }
 
   public void paint(Graphics g) {
@@ -116,7 +111,6 @@ public class GUITowerDefence extends JFrame {
   }
 
   // ---------- Event handling --------------------
-
   class EventLoop implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
@@ -140,7 +134,7 @@ public class GUITowerDefence extends JFrame {
         }
       }
 
-
+      monster.getAvailableMoves(positionPanels, level.passable);
 
       //if(counter%2 == 0) monster.takeDamage(1);
 
@@ -157,24 +151,10 @@ public class GUITowerDefence extends JFrame {
       // display all the updated elements of the GUI.
       revalidate();
       repaint();
-
     }
   }
 
   // ----------- Helper methods ---------------------
-
-  // Helper method to construct a JLabel with a given image
-
-  // Just some examples, you can change them however you like.
-  private JLabel buildTowerLabel() {
-    return getIconLabel("icons/tower-icon.png");
-  }
-
-  private JLabel getIconLabel(String fileName) {
-    URL url = this.getClass().getResource(fileName);
-    ImageIcon ii = new ImageIcon(url);
-    return new JLabel(ii);
-  }
 
   Position getNextMonsterPos() {
     return null;

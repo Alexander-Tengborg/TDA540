@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
+import java.util.Map;
 
 //TODO Cant center the HealthBar
 public class Monster extends JPanel {
@@ -19,7 +20,6 @@ public class Monster extends JPanel {
         String fileName = (Math.random() > 0.5) ? "icons/monster3.gif" : "icons/monster.gif";
         JLabel monsterIcon = getIconLabel(fileName);
         this.add(monsterIcon, BorderLayout.NORTH);
-
 
         healthBar = new HealthBar(health);
         this.add(healthBar, BorderLayout.SOUTH);
@@ -50,6 +50,10 @@ public class Monster extends JPanel {
         if(health - damage <= 0) {
             //TODO KILL MONSTER
         }
+    }
+
+    void getAvailableMoves(Map<Position, JPanel> positionPanels, boolean[][] passables) {
+
     }
 }
 

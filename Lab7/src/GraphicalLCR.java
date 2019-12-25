@@ -22,7 +22,7 @@ public class GraphicalLCR extends JFrame {
         playersPanel = new JPanel();
         dicePanel = new JPanel();
         actionsPanel = new JPanel();
-        
+
         actionsPanel.setLayout(new BorderLayout());
 
         mainPanel.add(playersPanel, BorderLayout.NORTH);

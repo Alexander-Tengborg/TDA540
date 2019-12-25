@@ -27,7 +27,7 @@ public class HealthBar extends JPanel {
 
         String hpText = String.format("%d/%d", health, maxHealth);
         g.setColor(Color.BLACK);
-        g.drawString(hpText, 25, 10);
+        g.drawString(hpText, 22, 10);
     }
 
     public void setHealth(int health) {
