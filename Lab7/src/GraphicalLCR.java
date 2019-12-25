@@ -14,7 +14,18 @@ public class GraphicalLCR extends JFrame {
         super("LCR Game");
 
         this.lcrGame = lcrGame;
-        this.setPreferredSize(new Dimension(300, 350));
+        this.setPreferredSize(new Dimension(300, 350)); // add width/height as arguments
+
+
+        //TODO lookandfill shit
+        /*
+        NimbusLookAndFeel laf = new NimbusLookAndFeel();
+
+        try {
+            UIManager.setLookAndFeel(laf);
+        } catch(UnsupportedLookAndFeelException e) {
+
+        }*/
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
@@ -47,6 +58,8 @@ public class GraphicalLCR extends JFrame {
             updatePlayersPanel();
             updateDicePanel();
             updateActionsPanel();
+
+            repaint();
         });
 
         exitButton.addActionListener(e -> {
@@ -80,8 +93,6 @@ public class GraphicalLCR extends JFrame {
 
             playersPanel.add(label);
         }
-
-        playersPanel.updateUI();
     }
 
     void updateDicePanel() {
@@ -91,8 +102,6 @@ public class GraphicalLCR extends JFrame {
             JLabel label = new JLabel(die.toString());
             dicePanel.add(label);
         }
-
-        dicePanel.updateUI();
     }
 
     void updateActionsPanel() {
