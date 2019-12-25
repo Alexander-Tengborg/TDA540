@@ -3,6 +3,8 @@ public class LCRGame {
     Die[] dice;
     int currentPlayer = 0;
 
+    int turn = 0;
+
     boolean hasWinner = false;
 
     Player winner;
@@ -45,6 +47,8 @@ public class LCRGame {
                     break;
             }
         }
+
+        turn++;
 
         if(player.getChips() == 0) checkWinner();
 
