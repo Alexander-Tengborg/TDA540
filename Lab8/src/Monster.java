@@ -1,19 +1,25 @@
 import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Map;
+import java.util.Random;
 
 //TODO Cant center the HealthBar
 public class Monster extends JPanel {
     private int health;
+
     private Position position;
+    private Position lastPosition;
+    private Position targetPosition;
 
     JLabel healthLabel;
     HealthBar healthBar;
 
-    Monster(int health, Position position) {
+    Monster(int health, Position position, Position targetPosition) {
         this.health = health;
-        this.position = position;
+        this.position = this.lastPosition = position;
+        this.targetPosition = targetPosition;
         //this.setBackground(Color.magenta);
         this.setLayout(new BorderLayout());
 
@@ -52,8 +58,44 @@ public class Monster extends JPanel {
         }
     }
 
-    void getAvailableMoves(Map<Position, JPanel> positionPanels, boolean[][] passables) {
+    ArrayList<Position> getAvailableMoves(boolean[][] passables) {
+        int curRow = position.getRow();
+        int curCol = position.getCol();
 
+        ArrayList<Position> positions = new ArrayList<>();
+
+        for(int row = position.getRow() - 1; row <= (position.getRow() + 1); row++) {
+            if(row < 0 || row > (passables.length - 1)) continue;
+            for(int col = position.getCol() - 1; col <= (position.getCol() + 1); col++) {
+                if(col < 0 || col > (passables[row].length - 1) || (col == curCol && row == curRow)) continue;
+                if(curCol != col && curRow != row) continue;
+
+                Position pos = new Position(col, row); //TODO change Position(...) to Position(row, col)
+                if(passables[row][col] && !lastPosition.equals(pos)) {
+                    positions.add(pos);
+                }
+            }
+        }
+        return positions;
+    }
+
+    Position getNextPos(boolean[][] passables) {
+        ArrayList<Position> availableMoves = getAvailableMoves(passables);
+
+        if(availableMoves.size() == 0) return null;
+
+        int index = new Random().nextInt(availableMoves.size());
+
+        return availableMoves.get(index);
+    }
+
+    void setPos(Position pos) {
+        lastPosition = position;
+        position = pos;
+    }
+
+    boolean atTargetPosition() {
+        return position.equals(targetPosition);
     }
 }
 

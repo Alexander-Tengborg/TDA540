@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Line2D;
-import java.net.URL;
 import java.util.*;
 
 public class GUITowerDefence extends JFrame {
@@ -17,7 +16,7 @@ public class GUITowerDefence extends JFrame {
 
   // A timer that will automatically advance the game each second.
   private final Timer timer;
-  private static final int SPEED = 1000;
+  private static final int SPEED = 40;
   private static final int PAUSE = 0; //3000;
 
   private int counter = 0;
@@ -31,7 +30,7 @@ public class GUITowerDefence extends JFrame {
   public static void main(String[] args) {
 
     // Change this to try out different levels
-    TowerDefenceLevel level = TowerDefenceLevel.buildDefaultLevel();
+    TowerDefenceLevel level = TowerDefenceLevel.buildSpiralLevel();
 
     // Create the GUI and set it to be visible
     GUITowerDefence gui = new GUITowerDefence(level);
@@ -92,7 +91,7 @@ public class GUITowerDefence extends JFrame {
       }
     }
 
-    monster = new Monster(50, level.getStartPos());
+    monster = new Monster(50, level.getStartPos(), level.getTargetPos());
 
     // Start the timer and set it to call the event loop each second
     EventLoop loop = new EventLoop();
@@ -120,25 +119,41 @@ public class GUITowerDefence extends JFrame {
 
       JPanel panel = positionPanels.get(monster.getPosition());
 
-      if(counter == 0) panel.add(monster);
+      if(counter == 0) {
+        panel.add(monster);
+        counter++;
+        return;
+      }
 
       for(Tower tower: towers) {
-        if(tower.canShootMonster(monster)) {
-          Projectile projectile = new Projectile();
-          projectile.setLayout(null);
-          projectile.setMinimumSize(new Dimension(10, 10));
-          projectile.setLocation(100, 100);
+        if(tower.canShootMonster(monster)) { //TODO unnecessary
+          //Projectile projectile = new Projectile();
+          //projectile.setLayout(null);
+          //projectile.setMinimumSize(new Dimension(10, 10));
+          //projectile.setLocation(100, 100);
           //mainPanel.add(projectile);
           tower.shootMonster(monster);
           //TODO if kill, remove monster
+
+          if(monster.getHealth() == 0) {
+            monster.removeAll();
+            setTitle("You won!");
+            timer.stop();
+          }
         }
       }
 
-      monster.getAvailableMoves(positionPanels, level.passable);
+      Position nextMonsterPos = monster.getNextPos(level.passable);
 
-      //if(counter%2 == 0) monster.takeDamage(1);
+      if(nextMonsterPos != null) {
+        panel.removeAll();
 
-      boolean gameOver = false; // TODO
+        positionPanels.get(nextMonsterPos).add(monster);
+
+        monster.setPos(nextMonsterPos);
+      }
+
+      boolean gameOver = monster.atTargetPosition(); // TODO
 
       if (gameOver) {
         setTitle("Game over!");

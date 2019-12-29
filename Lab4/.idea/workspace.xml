@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9255db0d-0029-4d7f-a578-0b23f0540d53" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8/out/production/Lab8/GUITowerDefence$EventLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/out/production/Lab8/GUITowerDefence$EventLoop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8/out/production/Lab8/GUITowerDefence.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/out/production/Lab8/GUITowerDefence.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8/out/production/Lab8/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/out/production/Lab8/Monster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8/src/GUITowerDefence.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/src/GUITowerDefence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/src/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab8/src/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/src/Position.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MyColorProgram.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="152" column="61" selection-start-line="152" selection-start-column="61" selection-end-line="152" selection-end-column="61" />
+            <state relative-caret-position="739">
+              <caret line="119" column="12" selection-start-line="119" selection-start-column="12" selection-end-line="119" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -49,10 +53,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1060" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -60,8 +64,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -78,6 +80,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -219,8 +223,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25825346" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26091588" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Nl-Palette" order="3" />
@@ -265,8 +270,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MyColorProgram.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="152" column="61" selection-start-line="152" selection-start-column="61" selection-end-line="152" selection-end-column="61" />
+        <state relative-caret-position="739">
+          <caret line="119" column="12" selection-start-line="119" selection-start-column="12" selection-end-line="119" selection-end-column="56" />
         </state>
       </provider>
     </entry>

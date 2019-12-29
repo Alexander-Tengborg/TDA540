@@ -23,7 +23,7 @@ public class Position {
     }
 
     @Override
-    public int hashCode()
+    public int hashCode() //TODO check if needed & fix
     {
         final int temp = 14;
         int ans = 1;

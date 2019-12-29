@@ -10,22 +10,14 @@ public class GraphicalLCR extends JFrame {
     JPanel dicePanel;
     JPanel actionsPanel;
 
+    JLabel actionLabel;
+    JButton nextButton;
+
     GraphicalLCR(LCRGame lcrGame) {
         super("LCR Game");
 
         this.lcrGame = lcrGame;
         this.setPreferredSize(new Dimension(300, 350)); // add width/height as arguments
-
-
-        //TODO lookandfill shit
-        /*
-        NimbusLookAndFeel laf = new NimbusLookAndFeel();
-
-        try {
-            UIManager.setLookAndFeel(laf);
-        } catch(UnsupportedLookAndFeelException e) {
-
-        }*/
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
@@ -39,17 +31,16 @@ public class GraphicalLCR extends JFrame {
         mainPanel.add(playersPanel, BorderLayout.NORTH);
         mainPanel.add(dicePanel, BorderLayout.CENTER);
         mainPanel.add(actionsPanel, BorderLayout.SOUTH);
-
-
+        
         playersPanel.setBorder(BorderFactory.createTitledBorder("Players"));
         dicePanel.setBorder(BorderFactory.createTitledBorder("Dice"));
         actionsPanel.setBorder(BorderFactory.createTitledBorder("Actions"));
 
         updatePlayersPanel();
 
-        JLabel actionLabel = new JLabel("Next player: " + this.lcrGame.getCurrentPlayer());
+        actionLabel = new JLabel("Next player: " + this.lcrGame.getCurrentPlayer());
 
-        JButton nextButton = new JButton("Next round");
+        nextButton = new JButton("Next round");
         JButton exitButton = new JButton("Exit");
 
         nextButton.addActionListener(e -> {
@@ -105,20 +96,18 @@ public class GraphicalLCR extends JFrame {
     }
 
     void updateActionsPanel() {
-        JLabel label = (JLabel) actionsPanel.getComponent(0);
-
         String actionText;
 
         if(lcrGame.hasWinner) {
-            JButton button = (JButton) actionsPanel.getComponent(1);
-            button.setEnabled(false);
+            nextButton = (JButton) actionsPanel.getComponent(1);
+            nextButton.setEnabled(false);
 
             actionText = "Game over! Winner is " + lcrGame.getWinner();
         } else {
             actionText = "Next player: " + this.lcrGame.getCurrentPlayer();
         }
 
-        label.setText(actionText);
+        actionLabel.setText(actionText);
     }
 
     public static void main(String[] args) {
