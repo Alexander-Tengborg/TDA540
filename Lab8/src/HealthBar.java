@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 
-//TODO Cant center the HealthBar in the Monster JFrame
+/*
+ * A simple health bar for the monster, that represents the amount of health the monster has.
+ */
 public class HealthBar extends JPanel {
     private int maxHealth;
     private int health;
@@ -10,11 +12,12 @@ public class HealthBar extends JPanel {
     private static final int HEALTHBAR_WIDTH = 75;
 
     HealthBar(int maxHealth) {
-        //this.setBackground(Color.BLUE);
-        this.maxHealth = maxHealth;
-        this.health = maxHealth;
+        this.maxHealth = this.health = maxHealth;
     }
 
+    /*
+     * Draws the health bar
+     */
     @Override
     public void paintComponent(Graphics g) {
         //super.paintComponent(g);
@@ -30,6 +33,13 @@ public class HealthBar extends JPanel {
         g.drawString(hpText, 22, 10);
     }
 
+    /*
+     * Changes the current health
+     *
+     * after:
+     *  New health value for the class' health variable
+     *  Redraws the health bar
+     */
     public void setHealth(int health) {
         if(health < 0) {
             this.health = 0;

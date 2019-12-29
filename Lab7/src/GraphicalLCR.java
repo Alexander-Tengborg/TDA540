@@ -31,7 +31,7 @@ public class GraphicalLCR extends JFrame {
         mainPanel.add(playersPanel, BorderLayout.NORTH);
         mainPanel.add(dicePanel, BorderLayout.CENTER);
         mainPanel.add(actionsPanel, BorderLayout.SOUTH);
-        
+
         playersPanel.setBorder(BorderFactory.createTitledBorder("Players"));
         dicePanel.setBorder(BorderFactory.createTitledBorder("Dice"));
         actionsPanel.setBorder(BorderFactory.createTitledBorder("Actions"));

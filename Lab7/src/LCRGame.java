@@ -2,7 +2,6 @@ public class LCRGame {
     Player[] players;
     Die[] dice;
     int currentPlayer = 0;
-    int tablePot = 0; //needed???
     int turn = 0;
 
     boolean hasWinner = false;
@@ -42,7 +41,6 @@ public class LCRGame {
                     break;
                 case "C":
                     player.removeChips(1);
-                    tablePot++;
                     break;
                 case ".":
                     break;

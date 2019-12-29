@@ -16,8 +16,8 @@ public class GUITowerDefence extends JFrame {
 
   // A timer that will automatically advance the game each second.
   private final Timer timer;
-  private static final int SPEED = 40;
-  private static final int PAUSE = 0; //3000;
+  private static final int SPEED = 1000;
+  private static final int PAUSE = 3000;
 
   private int counter = 0;
 
@@ -100,15 +100,6 @@ public class GUITowerDefence extends JFrame {
     timer.start();
   }
 
-  public void paint(Graphics g) {
-    super.paint(g);
-    Graphics2D g2 = (Graphics2D) g;
-    Line2D line = new Line2D.Double(100, 100, 250, 260);
-    //g2.draw(line);
-
-    //g.fillRect(100, 100, 20, 20);
-  }
-
   // ---------- Event handling --------------------
   class EventLoop implements ActionListener {
     @Override
@@ -126,20 +117,12 @@ public class GUITowerDefence extends JFrame {
       }
 
       for(Tower tower: towers) {
-        if(tower.canShootMonster(monster)) { //TODO unnecessary
-          //Projectile projectile = new Projectile();
-          //projectile.setLayout(null);
-          //projectile.setMinimumSize(new Dimension(10, 10));
-          //projectile.setLocation(100, 100);
-          //mainPanel.add(projectile);
-          tower.shootMonster(monster);
-          //TODO if kill, remove monster
+        tower.shootMonster(monster);
 
-          if(monster.getHealth() == 0) {
-            monster.removeAll();
-            setTitle("You won!");
-            timer.stop();
-          }
+        if(monster.getHealth() == 0) {
+          setTitle("You won!");
+          monster.removeAll();
+          timer.stop();
         }
       }
 
@@ -153,10 +136,11 @@ public class GUITowerDefence extends JFrame {
         monster.setPos(nextMonsterPos);
       }
 
-      boolean gameOver = monster.atTargetPosition(); // TODO
+      boolean gameOver = monster.atTargetPosition();
 
       if (gameOver) {
         setTitle("Game over!");
+        monster.removeAll();
         timer.stop();
       }
 
@@ -167,11 +151,5 @@ public class GUITowerDefence extends JFrame {
       revalidate();
       repaint();
     }
-  }
-
-  // ----------- Helper methods ---------------------
-
-  Position getNextMonsterPos() {
-    return null;
   }
 }

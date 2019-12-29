@@ -2,10 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Random;
 
-//TODO Cant center the HealthBar
+/*
+ * A class..
+ */
 public class Monster extends JPanel {
     private int health;
 
@@ -13,14 +14,15 @@ public class Monster extends JPanel {
     private Position lastPosition;
     private Position targetPosition;
 
-    JLabel healthLabel;
     HealthBar healthBar;
 
+    /*
+     * Initialises all variables and adds the correct layout
+     */
     Monster(int health, Position position, Position targetPosition) {
         this.health = health;
         this.position = this.lastPosition = position;
         this.targetPosition = targetPosition;
-        //this.setBackground(Color.magenta);
         this.setLayout(new BorderLayout());
 
         String fileName = (Math.random() > 0.5) ? "icons/monster3.gif" : "icons/monster.gif";
@@ -31,6 +33,9 @@ public class Monster extends JPanel {
         this.add(healthBar, BorderLayout.SOUTH);
     }
 
+    /*
+     * Returns a JLabel with an image, whose filepath is given as an argument
+     */
     private JLabel getIconLabel(String fileName) {
         URL url = this.getClass().getResource(fileName);
         ImageIcon ii = new ImageIcon(url);
@@ -45,19 +50,28 @@ public class Monster extends JPanel {
         return health;
     }
 
+    /*
+     * Damages the monster
+     *
+     * After:
+     *  Damages the monster and updates the health bar OR damages the monster and deletes it.
+     */
     public void takeDamage(int damage) {
-        if(health - damage < 0) {
+        if(health - damage <= 0) {
             health = 0;
         } else {
             health -= damage;
-        }
-        healthBar.setHealth(health);
-
-        if(health - damage <= 0) {
-            //TODO KILL MONSTER
+            healthBar.setHealth(health);
         }
     }
 
+    /*
+     * Gets all the available moves for the monster
+     * (Available moves are moves that are both passable and not to the last position that the monster was at)
+     *
+     * After:
+     *  Returns all available moves as an ArrayList
+     */
     ArrayList<Position> getAvailableMoves(boolean[][] passables) {
         int curRow = position.getRow();
         int curCol = position.getCol();
@@ -70,7 +84,7 @@ public class Monster extends JPanel {
                 if(col < 0 || col > (passables[row].length - 1) || (col == curCol && row == curRow)) continue;
                 if(curCol != col && curRow != row) continue;
 
-                Position pos = new Position(col, row); //TODO change Position(...) to Position(row, col)
+                Position pos = new Position(col, row);
                 if(passables[row][col] && !lastPosition.equals(pos)) {
                     positions.add(pos);
                 }
@@ -79,6 +93,12 @@ public class Monster extends JPanel {
         return positions;
     }
 
+    /*
+     * Gets all available moves and then selects a random one
+     *
+     * After:
+     *  Returns the monster's next move.
+     */
     Position getNextPos(boolean[][] passables) {
         ArrayList<Position> availableMoves = getAvailableMoves(passables);
 
@@ -89,28 +109,21 @@ public class Monster extends JPanel {
         return availableMoves.get(index);
     }
 
+    /*
+     * Sets the monster's last position to its current position and then sets its current position to a new position.
+     */
     void setPos(Position pos) {
         lastPosition = position;
         position = pos;
     }
 
+    /*
+     * Checks if the monster is at its target position.
+     *
+     * After:
+     *  Returns true if the monster is at its target position, and false if it isn't.
+     */
     boolean atTargetPosition() {
         return position.equals(targetPosition);
     }
 }
-
-/*
-    private JPanel buildMonsterPanel(int monsterHealth) {
-        JPanel panel = new JPanel();
-        panel.setBackground(Color.WHITE);
-        panel.setLayout(new BorderLayout());
-
-        JLabel monsterIcon = getIconLabel("icons/monster10.gif");
-        panel.add(monsterIcon, BorderLayout.CENTER);
-
-        JLabel healthLabel = new JLabel(Integer.toString(monsterHealth));
-        healthLabel.setFont(new Font("Serif", Font.BOLD, 10));
-        panel.add(healthLabel, BorderLayout.SOUTH);
-
-        return panel;
-    }*/

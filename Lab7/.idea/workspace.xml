@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="348a1ec9-8b82-4c49-93ad-fc229ce30a23" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Lab4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GraphicalLCR.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphicalLCR.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab8/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab8/out/production/Lab8/GUITowerDefence$EventLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/out/production/Lab8/GUITowerDefence$EventLoop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab8/out/production/Lab8/GUITowerDefence.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/out/production/Lab8/GUITowerDefence.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab8/out/production/Lab8/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/out/production/Lab8/Monster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab8/src/GUITowerDefence.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/src/GUITowerDefence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab8/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/src/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab8/src/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/src/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab8/src/Projectile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab8/src/Tower.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab8/src/Tower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LCRGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LCRGame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,15 +19,20 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/GraphicalLCR.java">
+        <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+            <state>
+              <caret column="13" selection-start-column="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>turn</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -46,8 +41,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/GraphicalLCR.java" />
+        <option value="$PROJECT_DIR$/src/LCRGame.java" />
       </list>
     </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -122,7 +124,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24973376" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973376" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
@@ -130,7 +132,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.32905984" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32905984" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32905984" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -155,8 +157,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GraphicalLCR.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+        <state relative-caret-position="-1219">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LCRGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="76" column="29" lean-forward="true" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>

@@ -17,7 +17,7 @@ public class TowerDefenceLevel {
     // - 'startRow' and 'startCol' indicate the initial position of the monster.
     // - 'targetRow' and 'targetCol' indicate the target position of the monster.
     //   (when the monster reaches this position, the player loses the game).
-    public TowerDefenceLevel(int height, int width, boolean[][] passable, //TODO height/width order
+    public TowerDefenceLevel(int height, int width, boolean[][] passable,
                              int startRow, int startCol,
                              int targetRow, int targetCol) {
         this.width = width;
@@ -30,13 +30,19 @@ public class TowerDefenceLevel {
     }
 
     public int getHeight() {
-        return height; // TODO
-    } //TODO height/width order
+        return height;
+    }
 
     public int getWidth() {
-        return width; // TODO
-    } //TODO height/width order
+        return width;
+    }
 
+    /*
+     * Returns the position at the given column and row.
+     *
+     * After:
+     *  Returns a position or null if the given column and row are outside of the grid.
+     */
     public Position getPosition(int col, int row) {
         if(col < 0 || col > (width-1) || row < 0 || row > (height-1)) return null;
 
